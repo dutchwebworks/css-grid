@@ -1,0 +1,33 @@
+###########################################
+# Tell Apache to have PHP parse all 
+# CSS files in this directory 
+###########################################
+
+AddType application/x-httpd-php .css
+
+###########################################
+# Turn on symlinks
+###########################################
+
+Options +FollowSymLinks
+
+###########################################
+# Turn on the URL rewrite engine
+###########################################
+
+RewriteEngine On
+
+###########################################
+# Set an URL base, relative from site root 
+###########################################
+
+RewriteBase /css
+
+###########################################
+# Rewrite the CSS file URL to a URL with a
+# querystring for PHP
+# URL IN: 	grid-180-12.css
+# URL OUT:	grid.css?grid_1=180&gutter=12
+###########################################
+
+RewriteRule ^grid-([0-9]+)-([0-9]+)\.css$ grid.css?grid_1=$1&gutter=$2
