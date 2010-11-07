@@ -12,22 +12,36 @@ AddType application/x-httpd-php .css
 Options +FollowSymLinks
 
 ###########################################
-# Turn on the URL rewrite engine
+## Allow directory index
 ###########################################
 
-RewriteEngine On
+Options +Indexes
 
 ###########################################
-# Set an URL base, relative from site root 
+## Check for mod_rewrite module
 ###########################################
 
-RewriteBase /css
+<IfModule mod_rewrite.c>
 
-###########################################
-# Rewrite the CSS file URL to a URL with a
-# querystring for PHP
-# URL IN: 	grid-180-12.css
-# URL OUT:	grid.css?grid_1=180&gutter=12
-###########################################
+	###########################################
+	## Turn rewrite engine on
+	###########################################
+	
+	RewriteEngine On
 
-RewriteRule ^grid-([0-9]+)-([0-9]+)\.css$ grid.css?grid_1=$1&gutter=$2
+	###########################################
+	## Set the rewrite base URL
+	###########################################
+	
+	RewriteBase /css
+
+	###########################################
+	# Rewrite the CSS file URL to a URL with a
+	# querystring for PHP
+	# URL IN: 	grid-180-12.css
+	# URL OUT:	grid.css?grid_1=180&gutter=12
+	###########################################
+	
+	RewriteRule ^grid-([0-9]+)-([0-9]+)\.css$ grid.css?grid_1=$1&gutter=$2
+
+</IfModule>
