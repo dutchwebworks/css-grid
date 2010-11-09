@@ -28,9 +28,9 @@ function calc_full_width() {
 <meta name="copyright" content="&copy; Poort80 Vorm + Functie online" />
 
 <!-- Rewritten URL: <?php echo($numberOfColumns); ?> column based CSS grid system, use the two numbers in the CSS file URL to change the 'column' width and the 'gutter' width, like: 'grid-10-120-10.css' -->
-<link href="css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" type="text/css" rel="stylesheet" media="screen" />
+<link href="/css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" type="text/css" rel="stylesheet" media="screen" />
 
-<!--[if lt ie 7]><link href="css/ie6.css" type="text/css" rel="stylesheet" media="screen" /><![endif]-->
+<!--[if lt ie 7]><link href="/css/ie6.css" type="text/css" rel="stylesheet" media="screen" /><![endif]-->
 
 <meta name="description" content="Dynamic CSS grid system" />
 <meta name="keywords" content="grid, demo, poort80, frontend" />
@@ -81,11 +81,11 @@ strong {
 	</form>
 	
 	<p>
-		View the CSS file (with URL rewriting): <a href="css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" target="_blank">grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css</a>
+		View the CSS file (with URL rewriting): <a href="/css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" target="_blank">grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css</a>
 	</p>
 	
 	<p>
-		<a href="advanced_example.php">View advanced CSS Grid system example with a fixed 10 column grid with variable column and gutter sizes</a>.
+		<a href="/advanced-example">View advanced CSS Grid system example with a fixed 10 column grid with variable column and gutter sizes</a>.
 	</p>
 	
 	<h5 class="title"><?php echo($numberOfColumns); ?> columns is <?php echo($numberOfColumns); ?> blocks, each <?php echo($columnWidth); ?>px wide with a margin-right of <?php echo($gutterWidth); ?>px acting as gutters* (dark gray). Total is <?php echo(calc_full_width()); ?>px wide.</h5>

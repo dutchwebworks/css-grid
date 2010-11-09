@@ -1,0 +1,24 @@
+###########################################
+## Check for mod_rewrite module
+###########################################
+
+<IfModule mod_rewrite.c>
+
+	###########################################
+	## Turn rewrite engine on
+	###########################################
+	
+	RewriteEngine On
+
+	###########################################
+	## Set the rewrite base URL
+	###########################################
+	
+	RewriteBase /
+
+	###########################################
+	# Rewrite common URL's
+	###########################################
+	
+	RewriteRule ^advanced-example/?$ advanced_example.php
+</IfModule>
