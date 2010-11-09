@@ -66,6 +66,7 @@ strong {
 	<h1>Dynamic CSS grid system based on URL rewriting of the CSS grid file</h1>
 	<form action="" method="post">
 		<p>
+			Number of columns:<br /> <input type="text" name="number_of_columns" value="<?php echo($numberOfColumns); ?>" disabled="disabled" /><br /><br /><br />
 			Column (grid_1) width:<br /> <input type="text" name="column_width" value="<?php echo($columnWidth); ?>" /><br /><br /><br />
 			Gutter width:<br /> <input type="text" name="gutter_width" value="<?php echo($gutterWidth); ?>" />
 		</p>
@@ -73,6 +74,10 @@ strong {
 			<input type="submit" name="submit" value="Change" />
 		</p>
 	</form>
+	
+	<p>
+		View the CSS file (with URL rewriting): <a href="css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" target="_blank">grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css</a>
+	</p>
 </div><!-- end .bodyCopy -->
 
 <div id="wrapper" class="gridContainer_10 contentCentered"><!-- alignment on page 'contentLeft', 'contentCentered' or 'contentRight' -->

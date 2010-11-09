@@ -22,13 +22,14 @@ function calc_full_width() {
 header("Content-type: text/css");
 ?>
 /*
-	Title:      Grid system
-	Author:     Front-end
-	Copyright:  Poort80  All rights resevered
+	Title:      		Grid system
+	Author:     		Front-end
+	Copyright:  		Poort80  All rights resevered
 
-	Columns:		<?php echo($nr_of_columns); ?><?php echo("\n"); ?>
+	Nr. of columns:		<?php echo($nr_of_columns); ?><?php echo("\n"); ?>
 	Column width:	<?php echo("\t"); ?><?php echo($grid_1); ?>px<?php echo("\n"); ?>
 	Gutter:		<?php echo("\t"); ?><?php echo($gutter); ?>px<?php echo("\n"); ?>
+	Total width: <?php echo("\t\t"); ?><?php echo(calc_full_width()); ?>px<?php echo("\n"); ?>
 */
 
 /* parent class to debug css grid system used on grid demo page
@@ -138,16 +139,16 @@ for($l = 1; $l <= $nr_of_columns; $l++) {
 /* grid block width and trigger classes for other elements
 ============================================================================= */
 
-.gridContainer_10 .grid_1, .wGrid_1, .gridContainer_10 .grid_nm_1 { width: <?php echo(calc_width(1, 0)); ?>px; }  /* grid_1 width (no gutter) */
-.gridContainer_10 .grid_2, .wGrid_2, .gridContainer_10 .grid_nm_2 { width: <?php echo(calc_width(2, 1)); ?>px; } /* 2x grid_1 + 1x gutter */
-.gridContainer_10 .grid_3, .wGrid_3, .gridContainer_10 .grid_nm_3 { width: <?php echo(calc_width(3, 2)); ?>px; } /* 3x grid_1 + 2x gutter */
-.gridContainer_10 .grid_4, .wGrid_4, .gridContainer_10 .grid_nm_4 { width: <?php echo(calc_width(4, 3)); ?>px; } /* 4x grid_1 + 3x gutter */
-.gridContainer_10 .grid_5, .wGrid_5, .gridContainer_10 .grid_nm_5 { width: <?php echo(calc_width(5, 4)); ?>px; } /* 5x grid_1 + 4x gutter */
-.gridContainer_10 .grid_6, .wGrid_6, .gridContainer_10 .grid_nm_6 { width: <?php echo(calc_width(6, 5)); ?>px; } /* 6x grid_1 + 5x gutter */
-.gridContainer_10 .grid_7, .wGrid_7, .gridContainer_10 .grid_nm_7 { width: <?php echo(calc_width(7, 6)); ?>px; } /* 7x grid_1 + 6x gutter */
-.gridContainer_10 .grid_8, .wGrid_8, .gridContainer_10 .grid_nm_8 { width: <?php echo(calc_width(8, 7)); ?>px; } /* 8x grid_1 + 7x gutter */
-.gridContainer_10 .grid_9, .wGrid_9, .gridContainer_10 .grid_nm_9 { width: <?php echo(calc_width(9, 8)); ?>px; } /* 9x grid_1 + 8x gutter */
-.gridContainer_10 .grid_10, .wGrid_10, .gridContainer_10 .grid_nm_10 { width: <?php echo(calc_width(10, 9)); ?>px; float: none; margin-right:0; } /* 10x grid_1 + 9x gutter */
+<?php
+for($u = 1; $u<= $nr_of_columns; $u++) {
+	if($u == $nr_of_columns) {
+		echo('.gridContainer_'.$nr_of_columns.' .grid_'.$u.', .wGrid_'.$u.', .gridContainer_'.$nr_of_columns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; float: none; margin-right:0; }');		
+	} else {
+		echo('.gridContainer_'.$nr_of_columns.' .grid_'.$u.', .wGrid_'.$u.', .gridContainer_'.$nr_of_columns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; }');	
+	}
+	echo("\n");
+}
+?>
 
 /* suffix when there is 'no margin-left', used in absence of class 'grid_first'
 ============================================================================= */
@@ -170,28 +171,36 @@ for($b = 1; $b <= $nr_of_columns -1; $b++) {
 /* grid block prefixes to shift blocks to the right
 ============================================================================= */
 
-.gridContainer_10 .grid_prefix_1 { margin-left: <?php echo(calc_width(1, 1)); ?>px;} /* grid_1 + 1x gutter */
-.gridContainer_10 .grid_prefix_2 { margin-left: <?php echo(calc_width(2, 2)); ?>px;} /* 2x grid_1 + 2x gutter */
-.gridContainer_10 .grid_prefix_3 { margin-left: <?php echo(calc_width(3, 3)); ?>px;} /* 3x grid_1 + 3x gutter */
-.gridContainer_10 .grid_prefix_4 { margin-left: <?php echo(calc_width(4, 4)); ?>px;} /* 4x grid_1 + 4x gutter */
-.gridContainer_10 .grid_prefix_5 { margin-left: <?php echo(calc_width(5, 5)); ?>px;} /* 5x grid_1 + 5x gutter */
-.gridContainer_10 .grid_prefix_6 { margin-left: <?php echo(calc_width(6, 6)); ?>px;} /* 6x grid_1 + 6x gutter */
-.gridContainer_10 .grid_prefix_7 { margin-left: <?php echo(calc_width(7, 7)); ?>px;} /* 7x grid_1 + 7x gutter */
-.gridContainer_10 .grid_prefix_8 { margin-left: <?php echo(calc_width(8, 8)); ?>px;} /* 8x grid_1 + 8x gutter */
-.gridContainer_10 .grid_prefix_9 { margin-left: <?php echo(calc_width(9, 9)); ?>px; float: right; margin-right: 0; } /* 9x grid_1 + 9x gutter */
+<?php
+for($f = 1; $f <= $nr_of_columns -1; $f++) {
+	if($f == $nr_of_columns-1) {
+		echo('.gridContainer_'.$nr_of_columns.' .grid_prefix_'.$f.' { margin-left: '.calc_width($f, $f).'px; float: right; margin-right: 0; }');
+	} else {
+		echo('.gridContainer_'.$nr_of_columns.' .grid_prefix_'.$f.' { margin-left: '.calc_width($f, $f).'px;}');
+	}
+	echo("\n");
+}
+?>
 
 /* grid block suffix to create empty space to the right
 ============================================================================= */
 
-.gridContainer_10 .grid_suffix_1 { margin-right: <?php echo(calc_width(2, 1)); ?>px; } /* 2x grid_1 + 2x gutter */
-.gridContainer_10 .grid_suffix_2 { margin-right: <?php echo(calc_width(2, 3)); ?>px; } /* 2x grid_1 + 3x gutter */
-.gridContainer_10 .grid_suffix_3 { margin-right: <?php echo(calc_width(3, 4)); ?>px; } /* 3x grid_1 + 4x gutter */
-.gridContainer_10 .grid_suffix_4 { margin-right: <?php echo(calc_width(4, 5)); ?>px; } /* 4x grid_1 + 5x gutter */
-.gridContainer_10 .grid_suffix_5 { margin-right: <?php echo(calc_width(5, 6)); ?>px; } /* 5x grid_1 + 6x gutter */
-.gridContainer_10 .grid_suffix_6 { margin-right: <?php echo(calc_width(6, 7)); ?>px; } /* 6x grid_1 + 7x gutter */
-.gridContainer_10 .grid_suffix_7 { margin-right: <?php echo(calc_width(7, 8)); ?>px; } /* 7x grid_1 + 8x gutter */
-.gridContainer_10 .grid_suffix_8 { margin-right: <?php echo(calc_width(8, 9)); ?>px; } /* 8x grid_1 + 9x gutter */
-.gridContainer_10 .grid_suffix_9 { margin-right: <?php echo(calc_width(9, 10)); ?>px; float: right; margin-right: 0; } /* 9x grid_1 + 10x gutter */
+<?php
+for($g = 1; $g <= $nr_of_columns -1; $g++) {
+	switch($g) {
+		case 1:
+			echo('.gridContainer_'.$nr_of_columns.' .grid_suffix_'.$g.' { margin-right: '.calc_width(2, 1).'px; }');
+			break;
+		case  $nr_of_columns -1:
+			echo('.gridContainer_'.$nr_of_columns.' .grid_suffix_'.$g.' { margin-right: '.calc_width($g, $g+1).'px; float: right; margin-right: 0; }');
+			break;
+		default:
+			echo('.gridContainer_'.$nr_of_columns.' .grid_suffix_'.$g.' { margin-right: '.calc_width($g, $g+1).'px; }');
+			break;
+	}
+	echo("\n");
+}
+?>
 
 /* wider outer most right column
 ============================================================================= */

@@ -79,10 +79,16 @@ strong {
 			<input type="submit" name="submit" value="Change" />
 		</p>
 	</form>
+	
+	<p>
+		View the CSS file (with URL rewriting): <a href="css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" target="_blank">grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css</a>
+	</p>
+	
+	
+	<h5 class="title"><?php echo($numberOfColumns); ?> columns is <?php echo($numberOfColumns); ?> blocks, each <?php echo($columnWidth); ?>px wide with a margin-right of <?php echo($gutterWidth); ?>px acting as gutters* (dark gray). Total is <?php echo(calc_full_width()); ?>px wide.</h5>
 </div><!-- end .bodyCopy -->
 
 <div id="wrapper" class="gridContainer_<?php echo($numberOfColumns); ?> contentCentered"><!-- alignment on page 'contentLeft', 'contentCentered' or 'contentRight' -->
-	<h5 class="title"><?php echo($numberOfColumns); ?> columns is <?php echo($numberOfColumns); ?> blocks, each <?php echo($columnWidth); ?>px wide with a margin-right of <?php echo($gutterWidth); ?>px acting as gutters* (dark gray). Total is <?php echo(calc_full_width()); ?>px wide.</h5>
 
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
 		<?php 

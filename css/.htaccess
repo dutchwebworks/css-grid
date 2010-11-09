@@ -38,7 +38,7 @@ Options +Indexes
 	###########################################
 	# Rewrite the CSS file URL to a URL with a
 	# querystring for PHP
-	# Example:	grid-numberOfColumns-columndWidth-gutterWidth.css
+	# Example:	grid-numberOfColumns-columnWidth-gutterWidth.css
 	# URL IN: 	grid-10-180-12.css
 	# URL OUT:	grid.css?columns=10&grid_1=180&gutter=12
 	###########################################
