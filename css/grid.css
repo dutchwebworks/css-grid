@@ -1,9 +1,9 @@
 <?php
 // Settings
-$columns = 10; // number of columns
+$nr_of_columns = $_GET['columns'] ? $_GET['columns'] : 10; // number of columns with a default
 $grid_1 = $_GET['grid_1'] ? $_GET['grid_1'] : 90; // column width with a default width
 $gutter = $_GET['gutter'] ? $_GET['gutter'] : 10; // gutter width with a default width
-$debug_height = 70; // div height of debug mode
+$debug_height = 90; // div height of debug mode
 
 // Calculate the width of columns and gutters
 function calc_width($nr_of_columns, $nr_of_gutters = false) {
@@ -13,6 +13,11 @@ function calc_width($nr_of_columns, $nr_of_gutters = false) {
 	return $width;
 }
 
+function calc_full_width() {
+	$full_width = $GLOBALS['nr_of_columns'] * $GLOBALS['grid_1'] + ($GLOBALS['nr_of_columns'] -1) * $GLOBALS['gutter'];
+	return $full_width;
+}
+
 // Sent the correct CSS file mime-type header
 header("Content-type: text/css");
 ?>
@@ -20,6 +25,10 @@ header("Content-type: text/css");
 	Title:      Grid system
 	Author:     Front-end
 	Copyright:  Poort80  All rights resevered
+
+	Columns:		<?php echo($nr_of_columns); ?><?php echo("\n"); ?>
+	Column width:	<?php echo("\t"); ?><?php echo($grid_1); ?>px<?php echo("\n"); ?>
+	Gutter:		<?php echo("\t"); ?><?php echo($gutter); ?>px<?php echo("\n"); ?>
 */
 
 /* parent class to debug css grid system used on grid demo page
@@ -29,32 +38,26 @@ header("Content-type: text/css");
 	margin-top: <?php echo($gutter); ?>px;
 }
 
-.cssDebug .gridContainer_10 {
+.cssDebug .gridContainer_<?php echo($nr_of_columns); ?> {
 	background-color: #ccc;
 	overflow: hidden;
 	padding-top: <?php echo($gutter); ?>px;
 }
 
-.cssDebug .gridContainer_10 .grid_1,
-.cssDebug .gridContainer_10 .grid_2,
-.cssDebug .gridContainer_10 .grid_3,
-.cssDebug .gridContainer_10 .grid_4,
-.cssDebug .gridContainer_10 .grid_5,
-.cssDebug .gridContainer_10 .grid_6,
-.cssDebug .gridContainer_10 .grid_7,
-.cssDebug .gridContainer_10 .grid_8,
-.cssDebug .gridContainer_10 .grid_9,
-.cssDebug .gridContainer_10 .grid_10,
-.cssDebug .gridContainer_10 .grid_nm_1,
-.cssDebug .gridContainer_10 .grid_nm_2,
-.cssDebug .gridContainer_10 .grid_nm_3,
-.cssDebug .gridContainer_10 .grid_nm_4,
-.cssDebug .gridContainer_10 .grid_nm_5,
-.cssDebug .gridContainer_10 .grid_nm_6,
-.cssDebug .gridContainer_10 .grid_nm_7,
-.cssDebug .gridContainer_10 .grid_nm_8,
-.cssDebug .gridContainer_10 .grid_nm_9,
-.cssDebug .gridContainer_10 .grid_nm_10 {
+<?php 
+for($i = 1; $i <= $nr_of_columns; $i++) {
+	echo('.cssDebug .gridContainer_'.$nr_of_columns.' .grid_'.$i.',');
+	echo("\n");
+}
+for($j = 1; $j <= $nr_of_columns; $j++) {
+	if($j == $nr_of_columns) {
+		echo('.cssDebug .gridContainer_'.$nr_of_columns.' .grid_nm_'.$j.' {');
+	} else {
+		echo('.cssDebug .gridContainer_'.$nr_of_columns.' .grid_nm_'.$j.',');
+	}
+	echo("\n");
+}
+?>
 	background-color: #eee;
 	height: <?php echo($debug_height); ?>px;
 	margin-bottom: <?php echo($gutter); ?>px;
@@ -64,16 +67,16 @@ header("Content-type: text/css");
 }
 
 /* nested grid blocks */
-.cssDebug .grid_parent .grid_1,
-.cssDebug .grid_parent .grid_2,
-.cssDebug .grid_parent .grid_3,
-.cssDebug .grid_parent .grid_4,
-.cssDebug .grid_parent .grid_5,
-.cssDebug .grid_parent .grid_6,
-.cssDebug .grid_parent .grid_7,
-.cssDebug .grid_parent .grid_8,
-.cssDebug .grid_parent .grid_9,
-.cssDebug .grid_parent .grid_10 {
+<?php 
+for($k = 1; $k <= $nr_of_columns; $k++) {
+	if($k == $nr_of_columns) {
+		echo('.cssDebug .grid_parent .grid_'.$k.' {');
+	} else {
+		echo('.cssDebug .grid_parent .grid_'.$k.',');
+	}
+	echo("\n");
+}
+?>
 	background-color: #ddd;
 }
 
@@ -90,13 +93,13 @@ header("Content-type: text/css");
 /* grid container based on fixed 920px wide
 ============================================================================= */
 
-.gridContainer_10 {
-	width: <?php echo(calc_width(10, 9)); ?>px; /* 10x grid_1 + 9x gutter */
+.gridContainer_<?php echo($nr_of_columns); ?> {
+	width: <?php echo(calc_full_width()); ?>px;
 	overflow: hidden;
 }
 
 /* actually only used for wrapper background color(s) or repeating background images */
-.gridContainer_10 .grid_parent,
+.gridContainer_<?php echo($nr_of_columns); ?> .grid_parent,
 .cssDebug .gridContainer_10 .grid_parent {
 	height: auto;
 }
@@ -115,19 +118,19 @@ header("Content-type: text/css");
 	margin-bottom: 0;	
 }
 
-/* grid blocks for 920px grid system divided by 10 blocks with a 20px gutter
+/* grid blocks
 ============================================================================= */
 
-.gridContainer_10 .grid_1,
-.gridContainer_10 .grid_2,
-.gridContainer_10 .grid_3,
-.gridContainer_10 .grid_4,
-.gridContainer_10 .grid_5,
-.gridContainer_10 .grid_6,
-.gridContainer_10 .grid_7,
-.gridContainer_10 .grid_8,
-.gridContainer_10 .grid_9,
-.gridContainer_10 .grid_10 {
+<?php 
+for($l = 1; $l <= $nr_of_columns; $l++) {
+	if($l == $nr_of_columns) {
+		echo('.gridContainer_'.$nr_of_columns.' .grid_'.$l.' {');
+	} else {
+		echo('.gridContainer_'.$nr_of_columns.' .grid_'.$l.',');
+	}
+	echo("\n");
+}
+?>
 	margin-right: <?php echo($gutter); ?>px; /* gutter width */
 	float: left;
 }
@@ -135,39 +138,30 @@ header("Content-type: text/css");
 /* grid block width and trigger classes for other elements
 ============================================================================= */
 
-.gridContainer_10 .grid_1, .wGrid_1 { width: <?php echo(calc_width(1)); ?>px; }  /* grid_1 width (no gutter) */
-.gridContainer_10 .grid_2, .wGrid_2 { width: <?php echo(calc_width(2, 1)); ?>px; } /* 2x grid_1 + 1x gutter */
-.gridContainer_10 .grid_3, .wGrid_3 { width: <?php echo(calc_width(3, 2)); ?>px; } /* 3x grid_1 + 2x gutter */
-.gridContainer_10 .grid_4, .wGrid_4 { width: <?php echo(calc_width(4, 3)); ?>px; } /* 4x grid_1 + 3x gutter */
-.gridContainer_10 .grid_5, .wGrid_5 { width: <?php echo(calc_width(5, 4)); ?>px; } /* 5x grid_1 + 4x gutter */
-.gridContainer_10 .grid_6, .wGrid_6 { width: <?php echo(calc_width(6, 5)); ?>px; } /* 6x grid_1 + 5x gutter */
-.gridContainer_10 .grid_7, .wGrid_7 { width: <?php echo(calc_width(7, 6)); ?>px; } /* 7x grid_1 + 6x gutter */
-.gridContainer_10 .grid_8, .wGrid_8 { width: <?php echo(calc_width(8, 7)); ?>px; } /* 8x grid_1 + 7x gutter */
-.gridContainer_10 .grid_9, .wGrid_9 { width: <?php echo(calc_width(9, 8)); ?>px; } /* 9x grid_1 + 8x gutter */
-.gridContainer_10 .grid_10, .wGrid_10 { width: <?php echo(calc_width(10, 9)); ?>px; float: none; margin-right:0; } /* 10x grid_1 + 9x gutter */
+.gridContainer_10 .grid_1, .wGrid_1, .gridContainer_10 .grid_nm_1 { width: <?php echo(calc_width(1, 0)); ?>px; }  /* grid_1 width (no gutter) */
+.gridContainer_10 .grid_2, .wGrid_2, .gridContainer_10 .grid_nm_2 { width: <?php echo(calc_width(2, 1)); ?>px; } /* 2x grid_1 + 1x gutter */
+.gridContainer_10 .grid_3, .wGrid_3, .gridContainer_10 .grid_nm_3 { width: <?php echo(calc_width(3, 2)); ?>px; } /* 3x grid_1 + 2x gutter */
+.gridContainer_10 .grid_4, .wGrid_4, .gridContainer_10 .grid_nm_4 { width: <?php echo(calc_width(4, 3)); ?>px; } /* 4x grid_1 + 3x gutter */
+.gridContainer_10 .grid_5, .wGrid_5, .gridContainer_10 .grid_nm_5 { width: <?php echo(calc_width(5, 4)); ?>px; } /* 5x grid_1 + 4x gutter */
+.gridContainer_10 .grid_6, .wGrid_6, .gridContainer_10 .grid_nm_6 { width: <?php echo(calc_width(6, 5)); ?>px; } /* 6x grid_1 + 5x gutter */
+.gridContainer_10 .grid_7, .wGrid_7, .gridContainer_10 .grid_nm_7 { width: <?php echo(calc_width(7, 6)); ?>px; } /* 7x grid_1 + 6x gutter */
+.gridContainer_10 .grid_8, .wGrid_8, .gridContainer_10 .grid_nm_8 { width: <?php echo(calc_width(8, 7)); ?>px; } /* 8x grid_1 + 7x gutter */
+.gridContainer_10 .grid_9, .wGrid_9, .gridContainer_10 .grid_nm_9 { width: <?php echo(calc_width(9, 8)); ?>px; } /* 9x grid_1 + 8x gutter */
+.gridContainer_10 .grid_10, .wGrid_10, .gridContainer_10 .grid_nm_10 { width: <?php echo(calc_width(10, 9)); ?>px; float: none; margin-right:0; } /* 10x grid_1 + 9x gutter */
 
 /* suffix when there is 'no margin-left', used in absence of class 'grid_first'
 ============================================================================= */
 
-.gridContainer_10 .grid_nm_1 { width: <?php echo(calc_width(1)); ?>px;}  /* grid_1 */
-.gridContainer_10 .grid_nm_2 { width: <?php echo(calc_width(2, 1)); ?>px;} /* 2x grid_1 + 1x gutter */
-.gridContainer_10 .grid_nm_3 { width: <?php echo(calc_width(3, 2)); ?>px;} /* 3x grid_1 + 2x gutter */
-.gridContainer_10 .grid_nm_4 { width: <?php echo(calc_width(4, 3)); ?>px;} /* 4x grid_1 + 3x gutter */
-.gridContainer_10 .grid_nm_5 { width: <?php echo(calc_width(5, 4)); ?>px;} /* 5x grid_1 + 4x gutter */
-.gridContainer_10 .grid_nm_6 { width: <?php echo(calc_width(6, 5)); ?>px;} /* 6x grid_1 + 5x gutter */
-.gridContainer_10 .grid_nm_7 { width: <?php echo(calc_width(7, 6)); ?>px;} /* 7x grid_1 + 6x gutter */
-.gridContainer_10 .grid_nm_8 { width: <?php echo(calc_width(8, 7)); ?>px;} /* 8x grid_1 + 7x gutter */
-.gridContainer_10 .grid_nm_9 { width: <?php echo(calc_width(9, 8)); ?>px;} /* 9x grid_1 + 8x gutter */
-
-.gridContainer_10 .grid_nm_1,
-.gridContainer_10 .grid_nm_2,
-.gridContainer_10 .grid_nm_3,
-.gridContainer_10 .grid_nm_4,
-.gridContainer_10 .grid_nm_5,
-.gridContainer_10 .grid_nm_6,
-.gridContainer_10 .grid_nm_7,
-.gridContainer_10 .grid_nm_8,
-.gridContainer_10 .grid_nm_9 {
+<?php
+for($b = 1; $b <= $nr_of_columns -1; $b++) {
+	if($b == $nr_of_columns -1) {
+		echo('.gridContainer_'.$nr_of_columns.' .grid_nm_'.$b.' {');
+	} else {
+		echo('.gridContainer_'.$nr_of_columns.' .grid_nm_'.$b.',');
+	}
+	echo("\n");
+}
+?>
 	float: left;
 	margin-left: 0;
 	margin-right: <?php echo($gutter); ?>px; /* gutter width */
@@ -202,39 +196,39 @@ header("Content-type: text/css");
 /* wider outer most right column
 ============================================================================= */
 
-.grid_nm_1.grid_nm_last,
-.grid_nm_2.grid_nm_last,
-.grid_nm_3.grid_nm_last,
-.grid_nm_4.grid_nm_last,
-.grid_nm_5.grid_nm_last,
-.grid_nm_5.grid_nm_last,
-.grid_nm_6.grid_nm_last,
-.grid_nm_7.grid_nm_last,
-.grid_nm_8.grid_nm_last,
-.grid_nm_9.grid_nm_last {
+<?php
+for($m = 1; $m <= $nr_of_columns -1; $m++) {
+	if($m == $nr_of_columns -1) {
+		echo('.grid_nm_'.$m.'.grid_nm_last {');
+	} else {
+		echo('.grid_nm_'.$m.'.grid_nm_last, ');
+	}
+	echo("\n");
+}
+?>
 	margin-right: 0;
 }
 
 /* last column on the right
 ============================================================================= */
 
-.gridContainer_10 .grid_last,
-.gridContainer_10 .grid_nm_last {
+.gridContainer_<?php echo($nr_of_columns); ?> .grid_last,
+.gridContainer_<?php echo($nr_of_columns); ?> .grid_nm_last {
 	float: right;
 	margin-right: 0;
 }
 
-.gridContainer_10 .grid_nm_last {
+.gridContainer_<?php echo($nr_of_columns); ?> .grid_nm_last {
 	margin-right: 0;
 }
 
 /* removing the margin-right for nested blocks
 ============================================================================= */
 
-.gridContainer_10 .grid_parent .grid_first {
+.gridContainer_<?php echo($nr_of_columns); ?> .grid_parent .grid_first {
 	margin-left: 0;
 }
 
-.gridContainer_10 .grid_parent .grid_last {
+.gridContainer_<?php echo($nr_of_columns); ?> .grid_parent .grid_last {
 	margin-right: 0;
 }
