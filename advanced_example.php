@@ -78,6 +78,11 @@ strong {
 	<p>
 		View the CSS file (with URL rewriting): <a href="css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" target="_blank">grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css</a>
 	</p>
+	
+	<p>
+		<a href="/">View basic CSS Grid system with varing numbers of columns, column width's and gutter width's</a>.
+	</p>
+	
 </div><!-- end .bodyCopy -->
 
 <div id="wrapper" class="gridContainer_10 contentCentered"><!-- alignment on page 'contentLeft', 'contentCentered' or 'contentRight' -->
