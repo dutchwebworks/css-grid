@@ -22,7 +22,7 @@ $gutterWidth = $_POST['gutter_width'] ? $_POST['gutter_width'] : 10;
 <meta name="author" content="Poort80 - Frontend" />
 <meta name="copyright" content="&copy; Poort80 Vorm + Functie online" />
 
-<!-- Rewritten URL: 10 column based CSS grid system, use the two numbers in the CSS file URL to change the 'column' width and the 'gutter' width, like: 'grid-120-10.css' -->
+<!-- Rewritten URL: <?php echo($numberOfColumns); ?> column based CSS grid system, use the two numbers in the CSS file URL to change the 'column' width and the 'gutter' width, like: 'grid-10-120-10.css' -->
 <link href="css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" type="text/css" rel="stylesheet" media="screen" />
 
 <!--[if lt ie 7]><link href="css/ie6.css" type="text/css" rel="stylesheet" media="screen" /><![endif]-->
