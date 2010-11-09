@@ -5,6 +5,15 @@
 <IfModule mod_rewrite.c>
 
 	###########################################
+	## Send UTF-8 header for HTML files
+	###########################################
+
+	<FilesMatch "\.(html?|css|js)$">
+		AddDefaultCharset UTF-8
+		DefaultLanguage en-US
+	</FilesMatch>
+
+	###########################################
 	## Turn rewrite engine on
 	###########################################
 	
