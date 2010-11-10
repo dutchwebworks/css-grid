@@ -27,6 +27,12 @@ Options +Indexes
 	###########################################
 	
 	RewriteBase /css
+	
+	###########################################
+	## Fallback rewrite URL
+	###########################################
+	
+	RewriteRule ^grid.css$ grid.css.php
 
 	###########################################
 	# Rewrite the CSS grid file URL

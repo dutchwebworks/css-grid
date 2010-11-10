@@ -5,15 +5,6 @@
 <IfModule mod_rewrite.c>
 
 	###########################################
-	## Send UTF-8 header for HTML files
-	###########################################
-
-	<FilesMatch "\.(html?|css|js)$">
-		AddDefaultCharset UTF-8
-		DefaultLanguage en-US
-	</FilesMatch>
-
-	###########################################
 	## Turn rewrite engine on
 	###########################################
 	
@@ -31,3 +22,12 @@
 	
 	RewriteRule ^advanced-example/?$ advanced_example.php
 </IfModule>
+
+###########################################
+## Send UTF-8 header for text files
+###########################################
+
+<FilesMatch "\.(html?|css|js)$">
+	AddDefaultCharset UTF-8
+	DefaultLanguage en-US
+</FilesMatch>
