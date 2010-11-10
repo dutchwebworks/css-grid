@@ -1,0 +1,43 @@
+/*
+	Title:      Screen styles
+	Author:     Front-end
+	Copyright:  Poort80  All rights resevered
+*/
+
+/* common 
+============================================================= */
+
+body {
+	background-color: #ffffff;
+	font-family:Arial, Helvetica, sans-serif;
+	color: #666;
+	font-size: 12px;
+}
+
+h5 {
+	font-size: 12px;
+	color: #00f;
+	padding-left: 10px;
+	clear: both;
+}
+
+input[type="text"] {
+	text-align: center;
+	width: 40px;
+}
+
+/* wrapper
+============================================================= */
+
+#wrapper,
+.bodyCopy {
+	margin: 0 auto;
+}
+
+/* body copy
+============================================================= */
+
+.bodyCopy {
+	width: 800px;
+	text-align: center;
+}

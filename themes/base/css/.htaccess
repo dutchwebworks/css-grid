@@ -26,7 +26,7 @@ Options +Indexes
 	## Set the rewrite base URL
 	###########################################
 	
-	RewriteBase /css
+	RewriteBase /themes/base/css
 	
 	###########################################
 	## Fallback rewrite URL

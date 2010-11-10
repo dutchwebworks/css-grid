@@ -1,63 +1,16 @@
 <?php
-$numberOfColumns = 10;
-$columnWidth = $_POST['column_width'] ? $_POST['column_width'] : 80;
-$gutterWidth = $_POST['gutter_width'] ? $_POST['gutter_width'] : 10;
-header ('Content-type: text/html; charset=utf-8');
+include("includes/functions.php");
+include("includes/settings.php");
+include("includes/default-html-dtd.inc.php");
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<!-- end include: default-html-dtd.inc.shtml -->
 <head>
 
-<!-- begin include: default-html-head.inc.shtml -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="content-language" content="en" />
+<?php include("includes/default-html-head.inc.php"); ?>
 
-<meta http-equiv="content-style-type" content="text/css" />
-<meta http-equiv="content-script-type" content="text/javascript" />
+<meta name="description" content="Advanced demo of CSS grid system" />
+<meta name="keywords" content="advanced, css, grid, demo" />
 
-<meta name="robots" content="index all,follow all" />
-<meta name="MSSmartTagsPreventParsing" content="true" />
-<meta http-equiv="imagetoolbar" content="no" /> 
-
-<meta name="author" content="Poort80 - Frontend" />
-<meta name="copyright" content="&copy; Poort80 Vorm + Functie online" />
-
-<!-- Rewritten URL: <?php echo($numberOfColumns); ?> column based CSS grid system, use the two numbers in the CSS file URL to change the 'column' width and the 'gutter' width, like: 'grid-10-120-10.css' -->
-<link href="/css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" type="text/css" rel="stylesheet" media="screen" />
-
-<!--[if lt ie 7]><link href="/css/ie6.css" type="text/css" rel="stylesheet" media="screen" /><![endif]-->
-
-<meta name="description" content="Dynamic CSS grid system" />
-<meta name="keywords" content="grid, demo, poort80, frontend" />
-
-<style type="text/css" media="all">
-body {
-	font-family:Geneva, Arial, Helvetica, sans-serif;
-	font-size: 14px;
-}
-
-.bodyCopy,
-form input {
-	text-align: center;
-}
-
-.title {
-	clear: both;
-	margin-left: 12px;
-	margin-top: 20px;
-	margin-bottom: 5px;
-	color: #00f;
-}
-strong {
-	color: #f00;
-}
-#wrapper {
-	margin: 0 auto;
-}
-</style>
-
-<title>Poort80 CSS grid demo page for Summon</title>
+<title>Advanced CSS grid demo page</title>
 
 </head>
 
@@ -71,27 +24,26 @@ strong {
 			Column (grid_1) width:<br /> <input type="text" name="column_width" value="<?php echo($columnWidth); ?>" /><br /><br /><br />
 			Gutter width:<br /> <input type="text" name="gutter_width" value="<?php echo($gutterWidth); ?>" />
 		</p>
+		
 		<p>
 			<input type="submit" name="submit" value="Change" />
 		</p>
 	</form>
 	
 	<p>
-		View the CSS file (with URL rewriting): <a href="css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" target="_blank">grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css</a>
+		View the CSS file (with URL rewriting): <a href="/themes/base/css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" target="_blank">grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css</a>
 	</p>
 	
 	<p>
 		<a href="/">View basic CSS Grid system with varing numbers of columns, column width's and gutter width's</a>.
 	</p>
 	
-</div><!-- end .bodyCopy -->
+	<h5 class="title"><?php echo($numberOfColumns); ?> columns is <?php echo($numberOfColumns); ?> blocks, each <?php echo($columnWidth); ?>px wide with a margin-right of <?php echo($gutterWidth); ?>px acting as gutters* (dark gray). Total width is <?php echo(calc_full_width()); ?>px.</h5></div><!-- end .bodyCopy -->
 
 <div id="wrapper" class="gridContainer_10 contentCentered"><!-- alignment on page 'contentLeft', 'contentCentered' or 'contentRight' -->
-
 	<h5 class="title">Full width of the grid</h5>
 
 	<div class="grid_row">
-
 		<div class="grid_10 grid_first">grid_10 grid_first</div><!-- full width of the grid -->
 	</div>
 	
@@ -100,14 +52,12 @@ strong {
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
 		<div class="grid_1 grid_first">grid_1 grid_first</div>
 		<div class="grid_1">grid_1</div>
-
 		<div class="grid_1">grid_1</div>
 		<div class="grid_1">grid_1</div>
 		<div class="grid_1">grid_1</div>
 		<div class="grid_1">grid_1</div>
 		<div class="grid_1">grid_1</div>
 		<div class="grid_1">grid_1</div>
-
 		<div class="grid_1">grid_1</div>
 		<div class="grid_1 grid_last">grid_1 grid_last</div>
 	</div><!-- end .grid_row -->	
@@ -117,7 +67,6 @@ strong {
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
 		<div class="grid_2 grid_first">grid_2  grid_first</div>
 		<div class="grid_2">grid_2</div>
-
 		<div class="grid_2">grid_2</div>
 		<div class="grid_2">grid_2</div>
 		<div class="grid_2 grid_last">grid_2 grid_last</div>	
@@ -127,7 +76,6 @@ strong {
 	
 	<div class="grid_row"><!-- used for clearing i.c.w. grid prefixes and suffixes -->
 		<div class="grid_2 grid_first">grid_2  grid_first</div>
-
 		<div class="grid_4">grid_4</div>
 		<div class="grid_1">grid_1</div>
 		<div class="grid_2">grid_3</div>	
@@ -137,7 +85,6 @@ strong {
 	<h5 class="title">Class 'grid_last' float's right thus creates a gap</h5>
 	
 	<div class="grid_row"><!-- used for clearing i.c.w. grid prefixes and suffixes -->
-
 		<div class="grid_1 grid_first">grid_1  grid_first</div>
 		<div class="grid_3">grid_3</div>
 		<div class="grid_3 grid_last">grid_3 grid_last</div>
@@ -185,7 +132,6 @@ strong {
 		<div class="grid_1">grid_1</div>
 		<div class="grid_1">grid_1</div>
 		<div class="grid_nm_1 grid_nm_last">grid_nm_1 grid_nm_last</div>
-
 	</div><!-- end .grid_row -->	
 	
 	<div class="grid_row"><!-- used for clearing i.c.w. grid prefixes and suffixes -->
@@ -290,7 +236,6 @@ strong {
 			<div class="grid_4">grid_4</div>
 			<div class="grid_2 grid_last">grid_2 grid_last</div>
 		</div><!-- end .grid_row -->
-
 	</div>	<!-- end .grid_8 -->
 	
 	<h5 class="title">Nested columns, by default the 'grid_first' and 'grid_last' blocks have no margin-left and no margin-right</h5>
@@ -346,7 +291,7 @@ strong {
 			<div class="grid_1 grid_last">grid_1 grid_last</div>
 
 		</div><!-- end .grid_row -->
-	</div>	<!-- end .grid_8 -->
+	</div><!-- end .grid_8 -->
 
 	<h5 class="title">Common layout with 2 sidebars and nested grid blocks</h5>
 	
@@ -367,23 +312,21 @@ strong {
 			<div class="grid_3 grid_first">grid_3 grid_first</div>
 			<div class="grid_3 grid_last">grid_3 grid_last</div>
 		</div><!-- end .grid_row -->
-	</div>	<!-- end .grid_6 -->
+	</div><!-- end .grid_6 -->
 	
 	<div class="grid_2 grid_last">grid_2 grid_last</div><!-- sidebar -->
 	
 	<h5 class="title">Use a 'grid_row' to break out of nested grids thus creating a (cleared) footer</h5>
-
 	
 	<div class="grid_row">
 		<div class="grid_2 grid_first">grid_3 grid_first</div>
 		<div class="grid_3">grid_3</div>
 		<div class="grid_5 grid_last">grid_7 grid_last</div>	
-	</div>
+	</div><!-- end .grid_row -->
 	
 	<div class="grid_row">
 		<div class="grid_10 grid_first">grid_10 grid_first</div>	
-	</div>
-
+	</div><!-- end .grid_row -->
 </div><!-- end #wrapper -->
 </body>
 </html>
