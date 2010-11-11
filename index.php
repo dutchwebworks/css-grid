@@ -18,23 +18,23 @@ include("includes/default-html-dtd.inc.php");
 
 <?php include("includes/header.inc.php"); ?>
 
-<div id="wrapper" class="gridContainer_<?php echo($numberOfColumns); ?> contentCentered"><!-- alignment on page 'contentLeft', 'contentCentered' or 'contentRight' -->
-
+<div id="wrapper" class="grid_container_<?php echo($numberOfColumns); ?> contentCentered"><!-- alignment on page 'contentLeft', 'contentCentered' or 'contentRight' -->
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
 		<?php 
 			// Render the columns
 			for($i = 1; $i <= $numberOfColumns; $i++) {
 				switch($i) {
 					case 1:
-						echo('<div class="grid_1 grid_first">grid_1 grid_first</div>');
+						echo('<div class="grid_1 grid_first">grid_1 grid_first <span>'.$columnWidth.'px</span></div>');
 						break;
 					case $numberOfColumns:
-						echo('<div class="grid_1 grid_last">grid_1 grid_last</div>');
+						echo('<div class="grid_1 grid_last">grid_1 grid_last <span>'.$columnWidth.'px</span></div>');
 						break;
 					default:
-						echo('<div class="grid_1">grid_1</div>');
+						echo('<div class="grid_1">grid_1 <span>'.$columnWidth.'px</span></div>');
 						break;
 				}
+				echo("\n");
 			}
 		?>
 	</div><!-- end .grid_row -->	

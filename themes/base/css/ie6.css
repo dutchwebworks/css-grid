@@ -2,61 +2,41 @@
 ============================================================= */
 
 /* Fixes Win/IE6 double margin bug when using floats */
-.gridContainer_10 .grid_prefix_1
-.gridContainer_10 .grid_prefix_2,
-.gridContainer_10 .grid_prefix_3,
-.gridContainer_10 .grid_prefix_4,
-.gridContainer_10 .grid_prefix_5,
-.gridContainer_10 .grid_prefix_6,
-.gridContainer_10 .grid_prefix_7,
-.gridContainer_10 .grid_prefix_8,
-.gridContainer_10 .grid_prefix_9,
-.gridContainer_10 .grid_suffix_1,
-.gridContainer_10 .grid_suffix_2,
-.gridContainer_10 .grid_suffix_3,
-.gridContainer_10 .grid_suffix_4,
-.gridContainer_10 .grid_suffix_5,
-.gridContainer_10 .grid_suffix_6,
-.gridContainer_10 .grid_suffix_7,
-.gridContainer_10 .grid_suffix_8,
-.gridContainer_10 .grid_suffix_9,
-.gridContainer_10 .grid_first,
-.gridContainer_10 .grid_last,
-.gridContainer_10 .grid_row {
+.grid_prefix_1
+.grid_prefix_2,
+.grid_prefix_3,
+.grid_prefix_4,
+.grid_prefix_5,
+.grid_prefix_6,
+.grid_prefix_7,
+.grid_prefix_8,
+.grid_prefix_9,
+.grid_suffix_1,
+.grid_suffix_2,
+.grid_suffix_3,
+.grid_suffix_4,
+.grid_suffix_5,
+.grid_suffix_6,
+.grid_suffix_7,
+.grid_suffix_8,
+.grid_suffix_9,
+.grid_first,
+.grid_last,
+.grid_row {
 	display: inline;
 	zoom: 1;
 }
 
-/* fix for T16 */
-.detailContent .grid_row {
-	display: block;
-}
-
 /* Win/IE6 can't do math!! This fixes width + 2px extra width error on grid columns */
-.gridContainer_10 .grid_1,
-.gridContainer_10 .grid_2,
-.gridContainer_10 .grid_3,
-.gridContainer_10 .grid_4,
-.gridContainer_10 .grid_5,
-.gridContainer_10 .grid_6,
-.gridContainer_10 .grid_7,
-.gridContainer_10 .grid_8,
-.gridContainer_10 .grid_9,
-.gridContainer_10 .grid_10,
-.gridDetailColumn_1,
-.gridDetailColumn_2,
-.gridDetailColumn_3,
-.gridDetailColumn_4,
-.gridDetailColumnSpan_3 {
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10 {
 	overflow: hidden;
-}
-
-/* new (nested) grid system for trip detail page, corrections
-============================================================= */
-
-.gridDetailContainer_4 .gridDetail_1,
-.gridDetailContainer_4 .gridDetail_2,
-.gridDetailContainer_4 .gridDetail_3,
-.gridDetailContainer_4 .gridDetail_4 {
-	position: relative;
 }

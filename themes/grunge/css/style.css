@@ -10,20 +10,40 @@
 body {
 	background-color: #ffffff;
 	font-family:Arial, Helvetica, sans-serif;
-	color: #666;
+	color: #999;
 	font-size: 12px;
+	line-height: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Georgia, Verdana, Times;
+	color: #00ABC7;
+}
+
+h1 {
+	font-size: 22px;
 }
 
 h5 {
 	font-size: 12px;
-	color: #00f;
+	color: #7A3700;
+	margin: 0 0 10px 0;
 	padding-left: 10px;
 	clear: both;
 }
 
+a {
+	color: #C75900;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 input[type="text"] {
 	text-align: center;
-	width: 40px;
+	width: 35px;
 }
 
 /* wrapper
@@ -40,4 +60,29 @@ input[type="text"] {
 .bodyCopy {
 	width: 800px;
 	text-align: center;
+	margin-bottom: 30px;
+}
+
+/* formElements
+============================================================= */
+
+.formElements label {
+	display: inline-block;
+	width: 130px;
+}
+
+.formElements input {
+	margin-right: 20px;
+}
+
+.contentCentered span,
+.grid_row span {
+	display: block;
+	color: #666;
+	font-family: Georgia, Verdana, Times;
+}
+
+.menu span {
+	display: inline-block;
+	margin: 0 10px;
 }

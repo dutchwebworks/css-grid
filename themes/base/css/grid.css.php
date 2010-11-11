@@ -28,7 +28,7 @@ header("Content-type: text/css");
 	margin-top: <?php echo($gutterWidth); ?>px;
 }
 
-.cssDebug .gridContainer_<?php echo($numberOfColumns); ?> {
+.cssDebug .grid_container_<?php echo($numberOfColumns); ?> {
 	background-color: #ccc;
 	overflow: hidden;
 	padding-top: <?php echo($gutterWidth); ?>px;
@@ -36,14 +36,14 @@ header("Content-type: text/css");
 
 <?php 
 for($i = 1; $i <= $numberOfColumns; $i++) {
-	echo('.cssDebug .gridContainer_'.$numberOfColumns.' .grid_'.$i.',');
+	echo('.cssDebug .grid_container_'.$numberOfColumns.' .grid_'.$i.',');
 	echo("\n");
 }
 for($j = 1; $j <= $numberOfColumns; $j++) {
 	if($j == $numberOfColumns) {
-		echo('.cssDebug .gridContainer_'.$numberOfColumns.' .grid_nm_'.$j.' {');
+		echo('.cssDebug .grid_container_'.$numberOfColumns.' .grid_nm_'.$j.' {');
 	} else {
-		echo('.cssDebug .gridContainer_'.$numberOfColumns.' .grid_nm_'.$j.',');
+		echo('.cssDebug .grid_container_'.$numberOfColumns.' .grid_nm_'.$j.',');
 	}
 	echo("\n");
 }
@@ -52,7 +52,7 @@ for($j = 1; $j <= $numberOfColumns; $j++) {
 	height: <?php echo($debugHeight); ?>px;
 	margin-bottom: <?php echo($gutterWidth); ?>px;
 	line-height: 25px;
-	text-indent: 10px;
+	text-align: center;
 	font-weight: bold;
 }
 
@@ -83,14 +83,14 @@ for($k = 1; $k <= $numberOfColumns; $k++) {
 /* grid container
 ============================================================================= */
 
-.gridContainer_<?php echo($numberOfColumns); ?> {
+.grid_container_<?php echo($numberOfColumns); ?> {
 	width: <?php echo(calc_full_width()); ?>px;
 	overflow: hidden;
 }
 
 /* actually only used for wrapper background color(s) or repeating background images */
-.gridContainer_<?php echo($numberOfColumns); ?> .grid_parent,
-.cssDebug .gridContainer_10 .grid_parent {
+.grid_container_<?php echo($numberOfColumns); ?> .grid_parent,
+.cssDebug .grid_container_10 .grid_parent {
 	height: auto;
 }
 
@@ -114,9 +114,9 @@ for($k = 1; $k <= $numberOfColumns; $k++) {
 <?php 
 for($l = 1; $l <= $numberOfColumns; $l++) {
 	if($l == $numberOfColumns) {
-		echo('.gridContainer_'.$numberOfColumns.' .grid_'.$l.' {');
+		echo('.grid_container_'.$numberOfColumns.' .grid_'.$l.' {');
 	} else {
-		echo('.gridContainer_'.$numberOfColumns.' .grid_'.$l.',');
+		echo('.grid_container_'.$numberOfColumns.' .grid_'.$l.',');
 	}
 	echo("\n");
 }
@@ -131,9 +131,9 @@ for($l = 1; $l <= $numberOfColumns; $l++) {
 <?php
 for($u = 1; $u<= $numberOfColumns; $u++) {
 	if($u == $numberOfColumns) {
-		echo('.gridContainer_'.$numberOfColumns.' .grid_'.$u.', .wGrid_'.$u.', .gridContainer_'.$numberOfColumns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; float: none; margin-right:0; }');		
+		echo('.grid_container_'.$numberOfColumns.' .grid_'.$u.', .wGrid_'.$u.', .grid_container_'.$numberOfColumns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; float: none; margin-right:0; }');		
 	} else {
-		echo('.gridContainer_'.$numberOfColumns.' .grid_'.$u.', .wGrid_'.$u.', .gridContainer_'.$numberOfColumns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; }');	
+		echo('.grid_container_'.$numberOfColumns.' .grid_'.$u.', .wGrid_'.$u.', .grid_container_'.$numberOfColumns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; }');	
 	}
 	echo("\n");
 }
@@ -145,9 +145,9 @@ for($u = 1; $u<= $numberOfColumns; $u++) {
 <?php
 for($b = 1; $b <= $numberOfColumns-1; $b++) {
 	if($b == $numberOfColumns-1) {
-		echo('.gridContainer_'.$numberOfColumns.' .grid_nm_'.$b.' {');
+		echo('.grid_container_'.$numberOfColumns.' .grid_nm_'.$b.' {');
 	} else {
-		echo('.gridContainer_'.$numberOfColumns.' .grid_nm_'.$b.',');
+		echo('.grid_container_'.$numberOfColumns.' .grid_nm_'.$b.',');
 	}
 	echo("\n");
 }
@@ -163,9 +163,9 @@ for($b = 1; $b <= $numberOfColumns-1; $b++) {
 <?php
 for($f = 1; $f <= $numberOfColumns-1; $f++) {
 	if($f == $numberOfColumns-1) {
-		echo('.gridContainer_'.$numberOfColumns.' .grid_prefix_'.$f.' { margin-left: '.calc_width($f, $f).'px; float: right; margin-right: 0; }');
+		echo('.grid_container_'.$numberOfColumns.' .grid_prefix_'.$f.' { margin-left: '.calc_width($f, $f).'px; float: right; margin-right: 0; }');
 	} else {
-		echo('.gridContainer_'.$numberOfColumns.' .grid_prefix_'.$f.' { margin-left: '.calc_width($f, $f).'px;}');
+		echo('.grid_container_'.$numberOfColumns.' .grid_prefix_'.$f.' { margin-left: '.calc_width($f, $f).'px;}');
 	}
 	echo("\n");
 }
@@ -178,13 +178,13 @@ for($f = 1; $f <= $numberOfColumns-1; $f++) {
 for($g = 1; $g <= $numberOfColumns-1; $g++) {
 	switch($g) {
 		case 1:
-			echo('.gridContainer_'.$numberOfColumns.' .grid_suffix_'.$g.' { margin-right: '.calc_width(2, 1).'px; }');
+			echo('.grid_container_'.$numberOfColumns.' .grid_suffix_'.$g.' { margin-right: '.calc_width(2, 1).'px; }');
 			break;
 		case  $numberOfColumns-1:
-			echo('.gridContainer_'.$numberOfColumns.' .grid_suffix_'.$g.' { margin-right: '.calc_width($g, $g+1).'px; float: right; margin-right: 0; }');
+			echo('.grid_container_'.$numberOfColumns.' .grid_suffix_'.$g.' { margin-right: '.calc_width($g, $g+1).'px; float: right; margin-right: 0; }');
 			break;
 		default:
-			echo('.gridContainer_'.$numberOfColumns.' .grid_suffix_'.$g.' { margin-right: '.calc_width($g, $g+1).'px; }');
+			echo('.grid_container_'.$numberOfColumns.' .grid_suffix_'.$g.' { margin-right: '.calc_width($g, $g+1).'px; }');
 			break;
 	}
 	echo("\n");
@@ -210,23 +210,23 @@ for($m = 1; $m <= $numberOfColumns-1; $m++) {
 /* last column on the right
 ============================================================================= */
 
-.gridContainer_<?php echo($numberOfColumns); ?> .grid_last,
-.gridContainer_<?php echo($numberOfColumns); ?> .grid_nm_last {
+.grid_container_<?php echo($numberOfColumns); ?> .grid_last,
+.grid_container_<?php echo($numberOfColumns); ?> .grid_nm_last {
 	float: right;
 	margin-right: 0;
 }
 
-.gridContainer_<?php echo($numberOfColumns); ?> .grid_nm_last {
+.grid_container_<?php echo($numberOfColumns); ?> .grid_nm_last {
 	margin-right: 0;
 }
 
 /* removing the margin-right for nested blocks
 ============================================================================= */
 
-.gridContainer_<?php echo($numberOfColumns); ?> .grid_parent .grid_first {
+.grid_container_<?php echo($numberOfColumns); ?> .grid_parent .grid_first {
 	margin-left: 0;
 }
 
-.gridContainer_<?php echo($numberOfColumns); ?> .grid_parent .grid_last {
+.grid_container_<?php echo($numberOfColumns); ?> .grid_parent .grid_last {
 	margin-right: 0;
 }
