@@ -221,7 +221,7 @@ $fixedDemo = true; 	// Add a disabled=disabled attribute to the column input fie
 		<strong>grid_8 grid_parent grid_last <span><?php echo(calc_width(8,7)); ?>px</span></strong>
 		<div class="grid_row"><!-- class 'grid_row' used for clearing -->
 			<div class="grid_1 grid_first">grid_1 grid_first <span><?php echo(calc_width(1)); ?>px</span></div>
-			<div class="grid_2 grid_suffix_2">grid_1 grid_suffix_2 <span><?php echo(calc_width(2,1)); ?>px</span></div>
+			<div class="grid_2 grid_suffix_2">grid_2 grid_suffix_2 <span><?php echo(calc_width(2,1)); ?>px</span></div>
 			<div class="grid_1">grid_1 <span><?php echo(calc_width(1)); ?>px</span></div>
 			<div class="grid_1">grid_1 <span><?php echo(calc_width(1)); ?>px</span></div>
 			<div class="grid_1 grid_last">grid_1 grid_last <span><?php echo(calc_width(1)); ?>px</span></div>
@@ -261,7 +261,7 @@ $fixedDemo = true; 	// Add a disabled=disabled attribute to the column input fie
 	<h5 class="title">Use a 'grid_row' to break out of nested grids thus creating a (cleared) footer</h5>
 	
 	<div class="grid_row">
-		<div class="grid_2 grid_first">grid_3 grid_first <span><?php echo(calc_width(2,1)); ?>px</span></div>
+		<div class="grid_2 grid_first">grid_2 grid_first <span><?php echo(calc_width(2,1)); ?>px</span></div>
 		<div class="grid_3">grid_3 <span><?php echo(calc_width(3,2)); ?>px</span></div>
 		<div class="grid_5 grid_last">grid_7 grid_last <span><?php echo(calc_width(5,4)); ?>px</span></div>	
 	</div><!-- end .grid_row -->
