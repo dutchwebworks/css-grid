@@ -131,9 +131,9 @@ for($l = 1; $l <= $numberOfColumns; $l++) {
 <?php
 for($u = 1; $u<= $numberOfColumns; $u++) {
 	if($u == $numberOfColumns) {
-		echo('.grid_container_'.$numberOfColumns.' .grid_'.$u.', .wGrid_'.$u.', .grid_container_'.$numberOfColumns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; float: none; margin-right:0; }');		
+		echo('.grid_container_'.$numberOfColumns.' .grid_'.$u.', .width_grid_'.$u.', .grid_container_'.$numberOfColumns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; float: none; margin-right:0; }');		
 	} else {
-		echo('.grid_container_'.$numberOfColumns.' .grid_'.$u.', .wGrid_'.$u.', .grid_container_'.$numberOfColumns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; }');	
+		echo('.grid_container_'.$numberOfColumns.' .grid_'.$u.', .width_grid_'.$u.', .grid_container_'.$numberOfColumns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; }');	
 	}
 	echo("\n");
 }
