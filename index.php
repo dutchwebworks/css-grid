@@ -19,7 +19,7 @@ include("includes/default-html-dtd.inc.php");
 <?php include("includes/header.inc.php"); ?>
 
 <div id="wrapper" class="grid_container_<?php echo($numberOfColumns); ?> contentCentered"><!-- alignment on page 'contentLeft', 'contentCentered' or 'contentRight' -->
-	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
+	<div class="grid_row longDemo"><!-- class 'grid_row' used for clearing -->
 		<?php 
 			// Render the columns
 			for($i = 1; $i <= $numberOfColumns; $i++) {

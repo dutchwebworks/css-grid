@@ -86,3 +86,7 @@ input[type="text"] {
 	display: inline-block;
 	margin: 0 10px;
 }
+
+.longDemo .grid_1 {
+	height: 800px !important;
+}

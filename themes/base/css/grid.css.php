@@ -72,7 +72,6 @@ for($k = 1; $k <= $numberOfColumns; $k++) {
 
 .cssDebug .grid_row {
 	background-color: #aaa;
-	height: <?php echo($debugHeight); ?>px;
 }
 
 .gridOutline {
