@@ -5,7 +5,7 @@ include("../../../includes/functions.php");
 $numberOfColumns= $_GET['columns'] ? $_GET['columns'] : 10; // number of columns with a default
 $columnWidth = $_GET['grid_1'] ? $_GET['grid_1'] : 90;		// column width with a default width
 $gutterWidth = $_GET['gutter'] ? $_GET['gutter'] : 10; 		// gutter width with a default width
-$debugHeight = 90; 											// div height of HTML debug mode (relates to the HTML body.cssDebug class)
+$debugHeight = 150; 											// div height of HTML debug mode (relates to the HTML body.cssDebug class)
 
 // Sent the correct CSS file content-type header
 header("Content-type: text/css");
@@ -29,9 +29,7 @@ header("Content-type: text/css");
 }
 
 .cssDebug .grid_container_<?php echo($numberOfColumns); ?> {
-	background-color: #ccc;
 	overflow: hidden;
-	padding-top: <?php echo($gutterWidth); ?>px;
 }
 
 <?php 
@@ -48,9 +46,8 @@ for($j = 1; $j <= $numberOfColumns; $j++) {
 	echo("\n");
 }
 ?>
-	background-color: #eee;
+	background-color: #ffb2b2;
 	height: <?php echo($debugHeight); ?>px;
-	margin-bottom: <?php echo($gutterWidth); ?>px;
 	line-height: 25px;
 	text-align: center;
 	font-weight: bold;
@@ -67,11 +64,12 @@ for($k = 1; $k <= $numberOfColumns; $k++) {
 	echo("\n");
 }
 ?>
-	background-color: #ddd;
+	background-color: #fff;
 }
 
 .cssDebug .grid_row {
-	background-color: #aaa;
+	background-color: #fff;
+	margin-bottom: 10px;
 }
 
 .gridOutline {
@@ -100,7 +98,6 @@ for($k = 1; $k <= $numberOfColumns; $k++) {
 .grid_nm_row {
 	overflow: hidden;
 	clear: both;
-	margin-bottom: <?php echo($gutterWidth); ?>px;
 }
 
 .grid_nm_row {

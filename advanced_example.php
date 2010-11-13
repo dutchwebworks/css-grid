@@ -29,7 +29,7 @@ $fixedDemo = true; 	// Add a disabled=disabled attribute to the column input fie
 	<h5 class="title">10 columns is 10 blocks, each <?php echo($columnWidth); ?>px wide with a margin-right of <?php echo($gutterWidth); ?>px acting as gutters* (dark gray)</h5>
 
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
-		<div class="grid_1 grid_first">grid_1 grid_first <span><?php echo(calc_width(1)); ?></span></div>
+		<div class="grid_1 grid_first">grid_1 grid_first <span><?php echo(calc_width(1)); ?>px</span></div>
 		<div class="grid_1">grid_1 <span><?php echo(calc_width(1)); ?>px</span></div>
 		<div class="grid_1">grid_1 <span><?php echo(calc_width(1)); ?>px</span></div>
 		<div class="grid_1">grid_1 <span><?php echo(calc_width(1)); ?>px</span></div>
@@ -38,7 +38,7 @@ $fixedDemo = true; 	// Add a disabled=disabled attribute to the column input fie
 		<div class="grid_1">grid_1 <span><?php echo(calc_width(1)); ?>px</span></div>
 		<div class="grid_1">grid_1 <span><?php echo(calc_width(1)); ?>px</span></div>
 		<div class="grid_1">grid_1 <span><?php echo(calc_width(1)); ?>px</span></div>
-		<div class="grid_1 grid_last">grid_1 grid_last <span><?php echo(calc_width(1)); ?></span></div>
+		<div class="grid_1 grid_last">grid_1 grid_last <span><?php echo(calc_width(1)); ?>px</span></div>
 	</div><!-- end .grid_row -->	
 
 	<h5 class="title">5 columns: 1 column is 2x 'grid_1' + 1x gutter is <?php echo(calc_width(2, 1)); ?>px wide</h5>
