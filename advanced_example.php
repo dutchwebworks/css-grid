@@ -145,21 +145,19 @@ $fixedDemo = true; 	// Add a disabled=disabled attribute to the column input fie
 	<h5 class="title">Common layouts</h5>
 	
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
-		<div class="grid_2 grid_first">grid_2 grid_first <span><?php echo(calc_width(2,1)); ?>px</span></div>
-		<div class="grid_6">grid_6 <span><?php echo(calc_width(6,5)); ?>px</span></div>
-		<div class="grid_2 grid_last">grid_2 grid_last <span><?php echo(calc_width(2,1)); ?>px</span></div>
+		<div class="grid_3 grid_first">grid_3 grid_first <span><?php echo(calc_width(3,2)); ?>px</span></div>
+		<div class="grid_7 grid_last">grid_7 <span><?php echo(calc_width(7,6)); ?>px</span></div>
 	</div><!-- end .grid_row -->	
 	
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
 		<div class="grid_3 grid_first">grid_3 grid_first <span><?php echo(calc_width(3,2)); ?>px</span></div>
 		<div class="grid_4">grid_4 <span><?php echo(calc_width(4,3)); ?>px</span></div>
 		<div class="grid_3 grid_last">grid_3 grid_last <span><?php echo(calc_width(3,2)); ?>px</span></div>
-	</div><!-- end .grid_row -->	
+	</div><!-- end .grid_row -->		
 	
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
-		<div class="grid_4 grid_first">grid_4 grid_first <span><?php echo(calc_width(4,3)); ?>px</span></div>
-		<div class="grid_3">grid_3 <span><?php echo(calc_width(3,2)); ?>px</span></div>
-		<div class="grid_3 grid_last">grid_3 grid_last <span><?php echo(calc_width(3,2)); ?>px</span></div>	
+		<div class="grid_7 grid_first">grid_7 grid_first <span><?php echo(calc_width(7,6)); ?>px</span></div>
+		<div class="grid_3 grid_last">grid_3 <span><?php echo(calc_width(3,2)); ?>px</span></div>
 	</div><!-- end .grid_row -->	
 
 	<h5 class="title">Nested grid blocks, use a class 'grid_parent' to nest grid blocks</h5>

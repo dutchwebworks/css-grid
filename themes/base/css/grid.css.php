@@ -24,24 +24,16 @@ header("Content-type: text/css");
 /* parent class to debug css grid system
 ============================================================================= */
 
-.cssDebug {
-	margin-top: <?php echo($gutterWidth); ?>px;
-}
-
 .cssDebug .grid_container_<?php echo($numberOfColumns); ?> {
 	overflow: hidden;
 }
 
 <?php 
-for($i = 1; $i <= $numberOfColumns; $i++) {
-	echo('.cssDebug .grid_container_'.$numberOfColumns.' .grid_'.$i.',');
-	echo("\n");
-}
 for($j = 1; $j <= $numberOfColumns; $j++) {
 	if($j == $numberOfColumns) {
-		echo('.cssDebug .grid_container_'.$numberOfColumns.' .grid_nm_'.$j.' {');
+		echo('.cssDebug .grid_container_'.$numberOfColumns.' .grid_'.$j.' {');
 	} else {
-		echo('.cssDebug .grid_container_'.$numberOfColumns.' .grid_nm_'.$j.',');
+		echo('.cssDebug .grid_container_'.$numberOfColumns.' .grid_'.$j.',');
 	}
 	echo("\n");
 }
@@ -53,28 +45,16 @@ for($j = 1; $j <= $numberOfColumns; $j++) {
 	font-weight: bold;
 }
 
-/* nested grid blocks */
-<?php 
-for($k = 1; $k <= $numberOfColumns; $k++) {
-	if($k == $numberOfColumns) {
-		echo('.cssDebug .grid_parent .grid_'.$k.' {');
-	} else {
-		echo('.cssDebug .grid_parent .grid_'.$k.',');
-	}
-	echo("\n");
-}
-?>
-	background-color: #fff;
-}
-
 .cssDebug .grid_row {
 	background-color: #fff;
-	margin-bottom: 10px;
 }
 
-.gridOutline {
-	background-color: #eee;
-	height: <?php echo($debugHeight); ?>px;
+.cssDebug .grid_row:last-child {
+	margin-bottom: 0;
+}
+
+.cssDebug .grid_container_<?php echo($numberOfColumns); ?> .grid_parent {
+	background-color: #ffdbdb;
 }
 
 /* grid container
@@ -89,19 +69,16 @@ for($k = 1; $k <= $numberOfColumns; $k++) {
 .grid_container_<?php echo($numberOfColumns); ?> .grid_parent,
 .cssDebug .grid_container_10 .grid_parent {
 	height: auto;
+	overflow: hidden;
 }
 
 /* grid row, used i.c.w. prefixes and suffixes for clearing rows
 ============================================================================= */
 
-.grid_row,
-.grid_nm_row {
+.grid_row {
 	overflow: hidden;
 	clear: both;
-}
-
-.grid_nm_row {
-	margin-bottom: 0;	
+	margin-bottom: <?php echo($gutterWidth); ?>px; /* gutter width */
 }
 
 /* grid blocks
@@ -127,31 +104,13 @@ for($l = 1; $l <= $numberOfColumns; $l++) {
 <?php
 for($u = 1; $u<= $numberOfColumns; $u++) {
 	if($u == $numberOfColumns) {
-		echo('.grid_container_'.$numberOfColumns.' .grid_'.$u.', .width_grid_'.$u.', .grid_container_'.$numberOfColumns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; float: none; margin-right:0; }');		
+		echo('.grid_container_'.$numberOfColumns.' .grid_'.$u.', .width_grid_'.$u.' { width: '.calc_width($u, $u -1).'px; float: none; margin-right:0; }');		
 	} else {
-		echo('.grid_container_'.$numberOfColumns.' .grid_'.$u.', .width_grid_'.$u.', .grid_container_'.$numberOfColumns.' .grid_nm_'.$u.' { width: '.calc_width($u, $u -1).'px; }');	
+		echo('.grid_container_'.$numberOfColumns.' .grid_'.$u.', .width_grid_'.$u.' { width: '.calc_width($u, $u -1).'px; }');	
 	}
 	echo("\n");
 }
 ?>
-
-/* suffix when there is 'no margin-left', used in absence of class 'grid_first'
-============================================================================= */
-
-<?php
-for($b = 1; $b <= $numberOfColumns-1; $b++) {
-	if($b == $numberOfColumns-1) {
-		echo('.grid_container_'.$numberOfColumns.' .grid_nm_'.$b.' {');
-	} else {
-		echo('.grid_container_'.$numberOfColumns.' .grid_nm_'.$b.',');
-	}
-	echo("\n");
-}
-?>
-	float: left;
-	margin-left: 0;
-	margin-right: <?php echo($gutterWidth); ?>px; /* gutter width */
-}
 
 /* grid block prefixes to shift blocks to the right
 ============================================================================= */
@@ -187,42 +146,11 @@ for($g = 1; $g <= $numberOfColumns-1; $g++) {
 }
 ?>
 
-/* wider outer most right column
-============================================================================= */
-
-<?php
-for($m = 1; $m <= $numberOfColumns-1; $m++) {
-	if($m == $numberOfColumns-1) {
-		echo('.grid_nm_'.$m.'.grid_nm_last {');
-	} else {
-		echo('.grid_nm_'.$m.'.grid_nm_last, ');
-	}
-	echo("\n");
-}
-?>
-	margin-right: 0;
-}
-
 /* last column on the right
 ============================================================================= */
 
 .grid_container_<?php echo($numberOfColumns); ?> .grid_last,
-.grid_container_<?php echo($numberOfColumns); ?> .grid_nm_last {
-	float: right;
-	margin-right: 0;
-}
-
-.grid_container_<?php echo($numberOfColumns); ?> .grid_nm_last {
-	margin-right: 0;
-}
-
-/* removing the margin-right for nested blocks
-============================================================================= */
-
-.grid_container_<?php echo($numberOfColumns); ?> .grid_parent .grid_first {
-	margin-left: 0;
-}
-
 .grid_container_<?php echo($numberOfColumns); ?> .grid_parent .grid_last {
+	float: right;
 	margin-right: 0;
 }
