@@ -2,7 +2,7 @@
 include("includes/functions.php");
 include("includes/settings.php");
 include("includes/default-html-dtd.inc.php");
-$fixedDemo = true; 	// Add a disabled=disabled attribute to the column input field for 'ddvanced example' page
+$fixedDemo = true; 	// Add a 'disabled=disabled' attribute to the column input field for 'advanced example' page
 ?>
 <head>
 
@@ -26,7 +26,7 @@ $fixedDemo = true; 	// Add a disabled=disabled attribute to the column input fie
 		<div class="grid_10 grid_first">grid_10 grid_first <span><?php echo(calc_full_width(1)); ?>px</span></div><!-- full width of the grid -->
 	</div>
 	
-	<h5 class="title">10 columns is 10 blocks, each <?php echo($columnWidth); ?>px wide with a margin-right of <?php echo($gutterWidth); ?>px acting as gutters* (dark gray)</h5>
+	<h5 class="title">10 columns is 10 blocks, each <?php echo($columnWidth); ?>px wide with a margin-right of <?php echo($gutterWidth); ?>px acting as gutters (white)</h5>
 
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
 		<div class="grid_1 grid_first">grid_1 grid_first <span><?php echo(calc_width(1)); ?>px</span></div>
@@ -51,7 +51,7 @@ $fixedDemo = true; 	// Add a disabled=disabled attribute to the column input fie
 		<div class="grid_2 grid_last">grid_2 grid_last <span><?php echo(calc_width(2,1)); ?>px</span></div>	
 	</div><!-- end .grid_row -->	
 
-	<h5 class="title">Class 'grid_row' is a parent (wrapper) div (dark gray) used for clearing floats and creating seperate rows</h5>
+	<h5 class="title">Class 'grid_row' is a parent (wrapper) div used for clearing floats and creating seperate rows</h5>
 	
 	<div class="grid_row"><!-- used for clearing i.c.w. grid prefixes and suffixes -->
 		<div class="grid_2 grid_first">grid_2 grid_first <span><?php echo(calc_width(2,1)); ?>px</span></div>
@@ -69,7 +69,7 @@ $fixedDemo = true; 	// Add a disabled=disabled attribute to the column input fie
 		<div class="grid_3 grid_last">grid_3 grid_last <span><?php echo(calc_width(3,2)); ?>px</span></div>
 	</div><!-- end .grid_row -->	
 	
-	<h5 class="title">Prefixing and suffixing block spaces used for shifting blocks</h5>
+	<h5 class="title">Prefixing and suffixing blocks. Used for shifting blocks.</h5>
 	
 	<div class="grid_row"><!-- used for clearing i.c.w. grid prefixes and suffixes -->
 		<div class="grid_2 grid_first">grid_2 grid_first <span><?php echo(calc_width(2,1)); ?>px</span></div>
@@ -146,7 +146,7 @@ $fixedDemo = true; 	// Add a disabled=disabled attribute to the column input fie
 	
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
 		<div class="grid_3 grid_first">grid_3 grid_first <span><?php echo(calc_width(3,2)); ?>px</span></div>
-		<div class="grid_7 grid_last">grid_7 <span><?php echo(calc_width(7,6)); ?>px</span></div>
+		<div class="grid_7 grid_last">grid_7 grid_last<span><?php echo(calc_width(7,6)); ?>px</span></div>
 	</div><!-- end .grid_row -->	
 	
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
@@ -157,7 +157,7 @@ $fixedDemo = true; 	// Add a disabled=disabled attribute to the column input fie
 	
 	<div class="grid_row"><!-- class 'grid_row' used for clearing -->
 		<div class="grid_7 grid_first">grid_7 grid_first <span><?php echo(calc_width(7,6)); ?>px</span></div>
-		<div class="grid_3 grid_last">grid_3 <span><?php echo(calc_width(3,2)); ?>px</span></div>
+		<div class="grid_3 grid_last">grid_3 grid_last<span><?php echo(calc_width(3,2)); ?>px</span></div>
 	</div><!-- end .grid_row -->	
 
 	<h5 class="title">Nested grid blocks, use a class 'grid_parent' to nest grid blocks</h5>
@@ -267,6 +267,9 @@ $fixedDemo = true; 	// Add a disabled=disabled attribute to the column input fie
 	<div class="grid_row">
 		<div class="grid_10 grid_first">grid_10 grid_first <span><?php echo(calc_width(10,9)); ?>px</span></div>	
 	</div><!-- end .grid_row -->
+	
+	<?php include("includes/footer.inc.php"); ?>
+	
 </div><!-- end #wrapper -->
 </body>
 </html>

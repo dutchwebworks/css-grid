@@ -55,13 +55,17 @@ input[type="text"] {
 	margin: 0 auto;
 }
 
+.fullWidth {
+	height: 50px !important;
+}
+
 /* body copy
 ============================================================= */
 
 .bodyCopy {
 	width: 800px;
 	text-align: center;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 /* formElements
@@ -93,5 +97,26 @@ input[type="text"] {
 }
 
 .longDemo .grid_1 {
-	height: 800px !important;
+	height: 500px !important;
+}
+
+/* footer
+============================================================= */
+
+.footer {
+	clear: both;
+	margin-top: 20px;
+	border-top: 1px dashed #666;
+}
+
+.footer .itemsLeft {
+	float: left;
+	width: 45%;
+	text-align: left;
+}
+
+.footer .itemsRight {
+	float: right;
+	width: 45%;
+	text-align: right;	
 }

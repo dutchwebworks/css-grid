@@ -5,7 +5,7 @@ include("../../../includes/functions.php");
 $numberOfColumns= $_GET['columns'] ? $_GET['columns'] : 10; // number of columns with a default
 $columnWidth = $_GET['grid_1'] ? $_GET['grid_1'] : 90;		// column width with a default width
 $gutterWidth = $_GET['gutter'] ? $_GET['gutter'] : 10; 		// gutter width with a default width
-$debugHeight = 150; 											// div height of HTML debug mode (relates to the HTML body.cssDebug class)
+$debugHeight = 200; 										// div height of HTML debug mode (relates to the HTML body.cssDebug class)
 
 // Sent the correct CSS file content-type header
 header("Content-type: text/css");
@@ -21,7 +21,7 @@ header("Content-type: text/css");
 	Total width: <?php echo("\t\t"); ?><?php echo(calc_full_width()); ?>px<?php echo("\n"); ?>
 */
 
-/* parent class to debug css grid system
+/* parent class for debugging the grid system
 ============================================================================= */
 
 .cssDebug .grid_container_<?php echo($numberOfColumns); ?> {
@@ -61,13 +61,13 @@ for($j = 1; $j <= $numberOfColumns; $j++) {
 ============================================================================= */
 
 .grid_container_<?php echo($numberOfColumns); ?> {
-	width: <?php echo(calc_full_width()); ?>px;
+	width: <?php echo(calc_full_width()); ?>px; /* full width of the grid */
 	overflow: hidden;
 }
 
 /* actually only used for wrapper background color(s) or repeating background images */
 .grid_container_<?php echo($numberOfColumns); ?> .grid_parent,
-.cssDebug .grid_container_10 .grid_parent {
+.cssDebug .grid_container_<?php echo($numberOfColumns); ?> .grid_parent {
 	height: auto;
 	overflow: hidden;
 }
@@ -78,10 +78,10 @@ for($j = 1; $j <= $numberOfColumns; $j++) {
 .grid_row {
 	overflow: hidden;
 	clear: both;
-	margin-bottom: <?php echo($gutterWidth); ?>px; /* gutter width */
+	margin-bottom: <?php echo($gutterWidth); ?>px; /* same as the gutter width */
 }
 
-/* grid blocks
+/* grid blocks defaults
 ============================================================================= */
 
 <?php 
@@ -98,7 +98,15 @@ for($l = 1; $l <= $numberOfColumns; $l++) {
 	float: left;
 }
 
-/* grid block width and trigger classes for other elements
+/* last grid block on the right
+============================================================================= */
+
+.grid_container_<?php echo($numberOfColumns); ?> .grid_last {
+	float: right;
+	margin-right: 0;
+}
+
+/* grid block width's and trigger classes for other elements
 ============================================================================= */
 
 <?php
@@ -112,7 +120,7 @@ for($u = 1; $u<= $numberOfColumns; $u++) {
 }
 ?>
 
-/* grid block prefixes to shift blocks to the right
+/* grid block prefixes: shift the block to the right
 ============================================================================= */
 
 <?php
@@ -126,7 +134,7 @@ for($f = 1; $f <= $numberOfColumns-1; $f++) {
 }
 ?>
 
-/* grid block suffix to create empty space to the right
+/* grid block suffix: shift adjacent block to the right
 ============================================================================= */
 
 <?php
@@ -145,12 +153,3 @@ for($g = 1; $g <= $numberOfColumns-1; $g++) {
 	echo("\n");
 }
 ?>
-
-/* last column on the right
-============================================================================= */
-
-.grid_container_<?php echo($numberOfColumns); ?> .grid_last,
-.grid_container_<?php echo($numberOfColumns); ?> .grid_parent .grid_last {
-	float: right;
-	margin-right: 0;
-}

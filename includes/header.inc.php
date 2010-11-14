@@ -23,5 +23,10 @@
 		<?php echo($numberOfColumns); ?> columns, each
 		<?php echo($columnWidth); ?>px wide with a gutter of <?php echo($gutterWidth); ?>px, total width is <?php echo(calc_full_width()); ?>px
 	</h3>
+	
+	<p>
+		<img src="/themes/grunge/gfx/ornament.gif" alt="Ornament" />
+	</p>
+	
 </div><!-- end .bodyCopy -->
 <!-- end include: header.inc.php -->

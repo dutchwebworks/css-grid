@@ -19,6 +19,13 @@ include("includes/default-html-dtd.inc.php");
 <?php include("includes/header.inc.php"); ?>
 
 <div id="wrapper" class="grid_container_<?php echo($numberOfColumns); ?> contentCentered"><!-- alignment on page 'contentLeft', 'contentCentered' or 'contentRight' -->
+
+	<div class="grid_row">
+		<div class="grid_<?php echo($numberOfColumns); ?> fullWidth">
+			Full width of the grid is <?php echo(calc_full_width()); ?>px
+		</div><!-- end .grid_container_<?php echo($numberOfColumns); ?> -->
+	</div><!-- end .grid_row -->
+
 	<div class="grid_row longDemo"><!-- class 'grid_row' used for clearing -->
 		<?php 
 			// Render the columns
@@ -38,6 +45,8 @@ include("includes/default-html-dtd.inc.php");
 			}
 		?>
 	</div><!-- end .grid_row -->	
+	
+	<?php include("includes/footer.inc.php"); ?>	
 </div><!-- end #wrapper -->
 </body>
 </html>
