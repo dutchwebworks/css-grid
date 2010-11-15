@@ -68,11 +68,11 @@
 	## Client side caching
 	########################################
 	
-	<FilesMatch "\.(xml|txt|html|js|css)$">
+	<FilesMatch "\.(xml|txt|html?|js|css)$">
 		Header append Cache-Control "proxy-revalidate"
 	</FilesMatch>
 	
-	<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+	<FilesMatch "\.(jpe?g|png|gif|swf)$">
 		Header append Cache-Control "public"
 	</FilesMatch>
 </ifModule>
