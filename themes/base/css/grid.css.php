@@ -1,4 +1,7 @@
 <?php
+// gzip all php output
+ob_start("ob_gzhandler");
+
 include("../../../includes/functions.php");
 
 // Get the values for the URL rewriting query string or use default values
