@@ -15,7 +15,7 @@
 <!-- load dynamic grid system -->
 <link href="/themes/base/css/grid-<?php echo($numberOfColumns); ?>-<?php echo($columnWidth); ?>-<?php echo($gutterWidth); ?>.css" type="text/css" rel="stylesheet" media="screen" />
 
-<link href="/themes/grunge/css/style.css" type="text/css" rel="stylesheet" media="screen" />
+<link href="/themes/basic/css/style.css" type="text/css" rel="stylesheet" media="screen" />
 
 <!--[if lt ie 7]>
 	<link href="/themes/base/css/ie6.css" type="text/css" rel="stylesheet" media="screen" />

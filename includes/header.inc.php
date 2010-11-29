@@ -25,7 +25,7 @@
 	</h3>
 	
 	<p>
-		<img src="/themes/grunge/gfx/ornament.gif" alt="Ornament" />
+		<img src="/themes/basic/gfx/ornament.gif" alt="Ornament" />
 	</p>
 	
 </div><!-- end .bodyCopy -->
