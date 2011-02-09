@@ -40,3 +40,8 @@
 .grid_10 {
 	overflow: hidden;
 }
+
+/* Full width */
+.grid_row {
+	width: 100%;
+}
