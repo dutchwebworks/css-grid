@@ -79,10 +79,24 @@ for($j = 1; $j <= $numberOfColumns; $j++) {
 ============================================================================= */
 
 .grid_row {
-	overflow: hidden;
 	clear: both;
 	margin-bottom: <?php echo($gutterWidth); ?>px; /* same as the gutter width */
 }
+
+/* another way to get the effect of 'overflow:hidden' without using 'overflow:hidden' because is chops-off / hides content */
+.grid_row:before,
+.grid_row:after {
+  content: "."; 
+  display: block; 
+  height: 0; 
+  overflow: hidden;	
+} 
+
+.grid_row:after { clear: both; }
+
+/* Fix clearfix Win/IE: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.grid_row { zoom: 1; }
+
 
 /* grid blocks defaults
 ============================================================================= */
