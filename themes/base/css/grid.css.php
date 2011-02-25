@@ -7,7 +7,13 @@ include("../../../includes/functions.php");
 // Get the values for the URL rewriting query string or use default values
 $numberOfColumns= $_GET['columns'] ? $_GET['columns'] : 10; // number of columns with a default
 $columnWidth = $_GET['grid_1'] ? $_GET['grid_1'] : 90;		// column width with a default width
-$gutterWidth = $_GET['gutter'] ? $_GET['gutter'] : 10; 		// gutter width with a default width
+
+if($_POST['gutter_width'] >= 0) {
+	$gutterWidth = $_POST['gutter_width'];
+} else {
+	$gutterWidth = 10; // default
+}
+
 $debugHeight = 200; 										// div height of HTML debug mode (relates to the HTML body.cssDebug class)
 
 // Sent the correct CSS file content-type header
