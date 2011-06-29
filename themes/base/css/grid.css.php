@@ -164,7 +164,7 @@ for($f = 1; $f <= $numberOfColumns-1; $f++) {
 for($g = 1; $g <= $numberOfColumns-1; $g++) {
 	switch($g) {
 		case 1:
-			echo('.grid_container_'.$numberOfColumns.' .grid_suffix_'.$g.' { margin-right: '.calc_width(2, 1).'px; }');
+			echo('.grid_container_'.$numberOfColumns.' .grid_suffix_'.$g.' { margin-right: '.calc_width(1, 2).'px; }');
 			break;
 		case  $numberOfColumns-1:
 			echo('.grid_container_'.$numberOfColumns.' .grid_suffix_'.$g.' { margin-right: '.calc_width($g, $g+1).'px; float: right; margin-right: 0; }');
