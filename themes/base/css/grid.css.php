@@ -8,8 +8,8 @@ include("../../../includes/functions.php");
 $numberOfColumns= $_GET['columns'] ? $_GET['columns'] : 10; // number of columns with a default
 $columnWidth = $_GET['grid_1'] ? $_GET['grid_1'] : 90;		// column width with a default width
 
-if($_POST['gutter_width'] >= 0) {
-	$gutterWidth = $_POST['gutter_width'];
+if($_GET['gutter_width'] >= 0) {
+	$gutterWidth = $_GET['gutter_width'];
 } else {
 	$gutterWidth = 10; // default
 }
