@@ -39,8 +39,8 @@ Options +Indexes
 	# to a URL with a querystring for PHP
 	# Example:	grid-numberOfColumns-columnWidth-gutterWidth.css
 	# URL IN: 	grid-10-180-12.css
-	# URL OUT:	grid.css.php?columns=10&grid_1=180&gutter_width=12
+	# URL OUT:	grid.css.php?columns=10&grid_1=180&gutter=12
 	###########################################
 	
-	RewriteRule ^grid-([0-9]+)-([0-9]+)-([0-9]+)\.css$ grid.css.php?columns=$1&grid_1=$2&gutter_width=$3
+	RewriteRule ^grid-([0-9]+)-([0-9]+)-([0-9]+)\.css$ grid.css.php?columns=$1&grid_1=$2&gutter=$3
 </IfModule>

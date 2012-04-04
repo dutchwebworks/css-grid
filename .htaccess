@@ -47,10 +47,8 @@
 ########################################
 
 <IfModule mod_expires.c>
-	<FilesMatch "\.gif|jpe?g|png$">
-		ExpiresActive On
-		Header set Expires "access plus 1 month"
-	</FilesMatch>
+	ExpiresActive On
+	ExpiresDefault "access plus 7 days"
 </ifModule>
 
 ########################################
