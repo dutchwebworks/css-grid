@@ -9,3 +9,5 @@ Basic **PHP scripting** with Apache mod_rewrite to create a dynamic CSS grid fil
 * Uses **Apache** `mod_rewrite module` (`/themes/base/css/.htaccess`) to modify the number of columns, unit width and the gutter width
 * In `/themes/base/css/.htaccess` the `grid.css` file is rewritten to `grid.css.php`
 * Uses basic PHP `for()` loops to generate the CSS.
+
+Their is a [demo available](http://css-grid.dutchwebworks.nl). Their you can play with it and copy the generated CSS to you'r own project.
