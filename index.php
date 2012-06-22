@@ -16,6 +16,8 @@ include("includes/default-html-dtd.inc.php");
 
 <body class="cssDebug"><!-- class 'cssDebug' used to debug the css grid -->
 
+<a href="https://github.com/dutchwebworks/css-grid"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
 <?php include("includes/header.inc.php"); ?>
 
 <div id="wrapper" class="grid_container_<?php echo($numberOfColumns); ?> contentCentered"><!-- alignment on page 'contentLeft', 'contentCentered' or 'contentRight' -->
